@@ -1,11 +1,25 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color ="primary">
     <ion-title>
-      About
+      Forecast
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+<ion-list *ngIf = "weatherForecast">
+  <ion-item *ngFor = "let weatherList of WeatherForecast">
+    
+    <ion-thumbnail item-start>
+      <img src="https://openweathermap.org/img/w/{{weatherList.weather[0].icon}}.png">
+    </ion-thumbnail>
+
+    <h2>{{weatherList.weather[0].main}}ok</h2>
+    <p>{{weatherList.dt * 1000 | date:'medium'}}</p>
+
+    <button ion-button clear item-end>View</button>
+  </ion-item>  
+</ion-list>
 
 </ion-content>
